@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-from scipy.stats import chisquare, chi2_contingency
+from scipy.stats import chi2_contingency
 
 def min_max(df, cat) :
     df[cat] = (df[cat] - df[cat].min()) / (df[cat].max() - df[cat].min())
