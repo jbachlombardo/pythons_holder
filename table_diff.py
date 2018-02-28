@@ -1,11 +1,8 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-import matplotlib
-import seaborn as sns
 import mpld3
 matplotlib.rcParams['font.sans-serif'] = 'Arial'
-# matplotlib.rcParams['font.serif'] = 'Times New Roman'
 
 df = pd.read_csv('points_positions.csv')
 df['Team'] = df['Team'].str.lstrip()
@@ -164,62 +161,3 @@ ax3.spines['top'].set_visible(False)
 ax3.spines['right'].set_visible(False)
 plt.tight_layout()
 plt.show()
-
-# def positioner(df, league, teams, pos1, pos2, pos3, pos4) :
-#     df = df[df['League'] == league]
-#     positions = {}
-#     for n in np.arange(1, teams + 1) :
-#         positions['pos_' + str(n)] = list(df[df['Pos'] == n][['Year', 'Pts']].itertuples(index = False, name = None))
-#     zipped_top = zip(positions[pos1], positions[pos2])
-#     zipped_bottom = zip(positions[pos3], positions[pos4])
-#     return zipped_top, zipped_bottom
-#
-# pos1 = 'pos_1'
-# pos2 = 'pos_6'
-# pos3 = 'pos_7'
-# pos4 = 'pos_18'
-#
-# #ENGLAND
-# zipped_eng_t10, zipped_eng_b10 = positioner(df, 'England', 20, pos1, pos2, pos3, pos4)
-# #SPAIN
-# zipped_spa_t10, zipped_spa_b10 = positioner(df, 'Spain', 20, pos1, pos2, pos3, pos4)
-# #ITALY
-# zipped_ita_t10, zipped_ita_b10 = positioner(df, 'Italy', 20, pos1, pos2, pos3, pos4)
-# #FRANCE
-# zipped_fra_t10, zipped_fra_b10 = positioner(df, 'France', 20, pos1, pos2, pos3, pos4)
-# #GERMANY
-# zipped_ger_t10, zipped_ger_b10 = positioner(df, 'Germany', 18, pos1, pos2, pos3, 'pos_16')
-#
-# #PLOT
-# def plotter(zipped, offset, color, label) :
-#     for a, b in zipped :
-#         plt.plot([a[0] + offset, b[0] + offset], [a[1], b[1]], ls = '-', marker = '_', c = color, label = label)
-#
-# fig = plt.figure()
-# plt.title('CL gap v relegation gap')
-# plt.xlabel('Year')
-# plt.ylabel('Points')
-# plotter(zipped_eng_t10, -0.3, '#be2a2a', 'England')
-# plotter(zipped_eng_b10, -0.3, '#be2a2a', 'England')
-# plotter(zipped_fra_t10, -0.15, '#052690', 'France')
-# plotter(zipped_fra_b10, -0.15, '#052690', 'France')
-# plotter(zipped_ger_t10, 0, '#000000', 'Germany')
-# plotter(zipped_ger_b10, 0, '#000000', 'Germany')
-# plotter(zipped_ita_t10, 0.15, '#408f4e', 'Italy')
-# plotter(zipped_ita_b10, 0.15, '#408f4e', 'Italy')
-# plotter(zipped_spa_t10, 0.3, '#f6c644', 'Spain')
-# plotter(zipped_spa_b10, 0.3, '#f6c644', 'Spain')
-# plt.xlim(df['Year'].min() - 1, df['Year'].max() + 1)
-# plt.ylim(0, df['Pts'].max() + 5)
-# plt.legend(mode = 'expand', ncol = 5)
-# plt.show()
-# mpld3.save_html(fig, 'CL gap v relegation gap.html')
-#
-#
-# Next step, do it by league to add another element and another color
-# To space diff leagues on x axis, do x[0] + (n-1)+(1/n.max)
-#
-# Also, to automate out grouping by country
-# Set so you can automate by input the number of comps
-#
-# Try to do colors by position rather than league
