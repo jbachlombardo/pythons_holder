@@ -7,7 +7,7 @@ pd.set_option('display.max_columns', 20)
 
 def create_full_set(fname_camp, fname_adset, fname_ad) :
     all = list()
-    cols_keep = ['Campaign name', 'Ad set name', 'Ad name', 'Link clicks', 'Reporting starts', 'Amount spent (USD)', 'Campaign name', 'Post comments', 'Page likes', 'Result rate', 'Video percentage watched', 'Post shares', 'Results', 'Frequency', 'Video average watch time', 'Level', 'Impressions', 'Post engagement', 'Length', 'Positive feedback', 'Relevance score']
+    cols_keep = ['Campaign name', 'Ad set name', 'Ad name', 'Link clicks', 'Reporting starts', 'Amount spent (USD)', 'Post comments', 'Page likes', 'Result rate', 'Video percentage watched', 'Post shares', 'Results', 'Frequency', 'Video average watch time', 'Level', 'Impressions', 'Post engagement', 'Length', 'Positive feedback', 'Relevance score']
     for a, b, c in zip(fname_camp, fname_adset, fname_ad) :
         camp = pd.read_csv(a, parse_dates = ['Reporting starts', 'Reporting ends'])
         camp = camp[(camp['Campaign name'] == 'Ireland campaign_post engagement') | (camp['Campaign name'] == 'Ireland campaign_traffic')]
