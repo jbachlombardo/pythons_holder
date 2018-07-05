@@ -29,13 +29,13 @@ def create_full_set(fname_camp, fname_adset, fname_ad) :
         ad['Level'] = 'Ad'
         ad['Length'] = (ad['Reporting ends'].sub(ad['Reporting starts']) / np.timedelta64(1, 'D') + 1)
         all.extend((camp[cols_keep], adset[cols_keep], ad[cols_keep]))
-    daily_reporting = pd.concat(all, ignore_index = True)
-    daily_reporting['Cost per link click'] = daily_reporting['Amount spent (USD)'] / daily_reporting['Link clicks']
-    daily_reporting['Cost per post engagement'] = daily_reporting['Amount spent (USD)'] / daily_reporting['Post engagement']
-    daily_reporting['Cost per post comment'] = daily_reporting['Amount spent (USD)'] / daily_reporting['Post comments']
-    daily_reporting['Cost per post share'] = daily_reporting['Amount spent (USD)'] / daily_reporting['Post shares']
-    daily_reporting['Cost per result'] = daily_reporting['Amount spent (USD)'] / daily_reporting['Results']
-    return daily_reporting
+    reporting = pd.concat(all, ignore_index = True)
+    reporting['Cost per link click'] = reporting['Amount spent (USD)'] / reporting['Link clicks']
+    reporting['Cost per post engagement'] = reporting['Amount spent (USD)'] / reporting['Post engagement']
+    reporting['Cost per post comment'] = reporting['Amount spent (USD)'] / reporting['Post comments']
+    reporting['Cost per post share'] = reporting['Amount spent (USD)'] / reporting['Post shares']
+    reporting['Cost per result'] = reporting['Amount spent (USD)'] / reporting['Results']
+    return reporting
 
 camp_daily_fnames = sorted(glob('/Users/jbachlombardo/Documents/Tere International/Clients/PIPD/Ad data/Ireland/Daily/PIPD-Campaigns*.csv'))
 adset_daily_fnames = sorted(glob('/Users/jbachlombardo/Documents/Tere International/Clients/PIPD/Ad data/Ireland/Daily/PIPD-Ad-sets*.csv'))
