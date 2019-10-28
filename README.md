@@ -1,2 +1,3 @@
 # pythons_holder
-Holder for pythons I don't want to lose to another glass of water
+
+Unstructured holder for pythons I don't want to lose to another glass of water.
